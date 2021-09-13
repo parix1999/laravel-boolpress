@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Qui si andrà a lavorare con i dati dei posts:
+
         return view('home');
     }
 }
