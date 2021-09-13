@@ -4,3 +4,15 @@
         width:100;
     }
 }
+
+.prodotto{
+    height:400px;
+    background-color:#fff;
+    padding: 0 10px;
+    border: 1px solid #dfdfdf;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
