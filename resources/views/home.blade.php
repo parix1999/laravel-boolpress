@@ -20,4 +20,10 @@
         </div>
     </div>
 </div>
+<div class="container">
+    @foreach($allPosts as $post)
+        {{ $post }}
+
+    @endforeach
+</div>
 @endsection
