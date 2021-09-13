@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Qui devo passare i dati del database:
+use App\post;
+
 
 class HomeController extends Controller
 {
@@ -24,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         // Qui si andrà a lavorare con i dati dei posts:
-
+        $allPosts = Post:all();
         return view('home');
     }
 }
