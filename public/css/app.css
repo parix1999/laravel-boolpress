@@ -10942,3 +10942,11 @@ a.text-dark:focus {
   }
 }
 
+.box-image {
+  width: 150px;
+}
+
+.box-image img {
+  width: 100;
+}
+

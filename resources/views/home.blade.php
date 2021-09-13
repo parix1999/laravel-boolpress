@@ -19,11 +19,28 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    @foreach($allPosts as $post)
-        {{ $post }}
+    <!-- Parte personalizzata da me: -->
+    <div class="sezione-card">
+        <div class="row">
+            @foreach($allPosts as $post)
 
-    @endforeach
+                <div class="col-4">
+                    <div class="card">
+                        <div class="box-img">
+                            <img src="{{ $post['cover'] }}" alt="Immagine compertina di {{ $post['title'] }}">
+                        </div>
+                        <div class="title">
+                            {{ $post['title'] }}
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+    </div>
+
+
+
 </div>
+
 @endsection
