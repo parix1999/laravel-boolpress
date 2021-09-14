@@ -53,7 +53,13 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // Qui ci andranno i dati del singolo post:
+        // Quindi richiamiamo il singolo dato, il singolo post:
+        $post = post::find($id);
+        // E' già collegato, dato che la rotta della resource ha dei superpoteri e può capire l'index, e lo aggancia
+        // automaticamente per poi poterlo collegare ad un link e rendere questo numero cambiabile automaticamente, qui laravel ci aiuta tanto.
+        return view('posts.index', compact('post')); 
+
     }
 
     /**
