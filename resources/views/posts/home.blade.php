@@ -25,17 +25,20 @@
             @foreach($allPosts as $post)
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4">
-                    <div class="prodotto">
-                        <div class="box-img">
-                            <img src="{{ $post['cover'] }}" alt="Immagine compertina di {{ $post['title'] }}">
+                    <!-- Link per il collegamento al singolo post: -->
+                    <a href="{{ route('posts.show', $post) }}">
+                        <div class="prodotto">
+                            <div class="box-img">
+                                <img src="{{ $post['cover'] }}" alt="Immagine compertina di {{ $post['title'] }}">
+                            </div>
+                            <div class="title">
+                                {{ $post['title'] }}
+                            </div>
+                            <div class="description">
+                                {{ $post['abstract'] }}
+                            </div>
                         </div>
-                        <div class="title">
-                            {{ $post['title'] }}
-                        </div>
-                        <div class="description">
-                            {{ $post['abstract'] }}
-                        </div>
-                    </div>
+                    </a>
                 </div>
             @endforeach
         </div>
