@@ -15,4 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
+
+// Mi serve la rotta per la login iniziale:
+//Route::get('/', 'layout.app')->name('home');
+
+
+// Serve la rotta da collegare a PostController in modo tale che possa restituire tutti i dati alla view:
+// Questa è una rotta su un controller resource(CRUD), quindi con molti più vantaggi:
+Route::resource('posts', 'PostController');
