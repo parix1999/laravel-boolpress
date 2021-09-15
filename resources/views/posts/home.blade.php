@@ -20,30 +20,31 @@
         </div>
     </div>
     <!-- Parte personalizzata da me: -->
-    <div class="sezione-prodotto">
-        <div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
             @foreach($allPosts as $post)
-
-                <div class="col-6 col-sm-6 col-md-4 col-lg-4">
-                    <!-- Link per il collegamento al singolo post: -->
-                    <a href="{{ route('posts.show', $post) }}">
-                        <div class="prodotto">
-                            <div class="box-img">
-                                <img src="{{ $post['cover'] }}" alt="Immagine compertina di {{ $post['title'] }}">
-                            </div>
-                            <div class="title">
-                                {{ $post['title'] }}
-                            </div>
-                            <div class="description">
-                                {{ $post['abstract'] }}
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <tr>
+                    <th scope="row">{{ $post->id }}</th>
+                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->abstract }}</td>
+                    <td>{{ $post->price }}</td>
+                    <td>
+                        <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
+                    </td>
+                </tr>
             @endforeach
-        </div>
-
-    </div>
+        </tbody>
+    </table>
 
 
 
