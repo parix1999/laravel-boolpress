@@ -41,6 +41,7 @@
                     <td>
                         <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
                     </td>
+                    <td><i class="bi bi-door-open"></i></td>
                 </tr>
             @endforeach
         </tbody>
