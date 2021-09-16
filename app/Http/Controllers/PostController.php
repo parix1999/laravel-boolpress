@@ -60,6 +60,12 @@ class PostController extends Controller
         $post->save(); // Se arriva a questo comando allora tutto andrà dentro al DataBase;
         // Ora manca la funzione di return, per la redirect:
         return redirect()->route('posts.show', $post);
+
+        // Sempre qui ora serve la validation per alcuni campi: 
+        // Per farlo si usa sempre la variabile $require:
+        $request->validate([
+            'cover' =>'url',
+        ]);
     }
 
     /**
