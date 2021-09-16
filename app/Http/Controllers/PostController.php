@@ -56,16 +56,17 @@ class PostController extends Controller
         $post->abstract = $data['abstract'];
         $post->cover = $data['cover'];
         $post->price = $data['price'];
+        // Ora facciamo la validizione
+        $request->validate([
+            "cover" => "required|url"
+        ]);
         // Ora si salva:
         $post->save(); // Se arriva a questo comando allora tutto andrà dentro al DataBase;
        
         // Ora manca la funzione di return, per la redirect:
         return redirect()->route('posts.show', $post);
 
-        // Ora facciamo la validizione
-        $request->validate([
-            "cover" => "required|url"
-        ]);
+        
 
     }
 
