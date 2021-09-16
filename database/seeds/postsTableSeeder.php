@@ -20,6 +20,7 @@ class postsTableSeeder extends Seeder
             return rand(1, 5);
         }
 
+
         // Qui ora passiamo tutti i dati, con l'uso di un faker, generando 50 post:
         for($i = 0; $i < 50; $i++) {
             // Qui andranno i dati da generare, creando un nuovo oggetto post:

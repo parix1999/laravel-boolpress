@@ -31,7 +31,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        // Qui creo il collegamento dati per il form del view, solo il ritorno della view:
+        return view('posts.create'); 
     }
 
     /**
@@ -42,7 +43,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Mi serve per il POST:
+        // qui andrà il dd per vedere se i dati partono:
+        dd($request);
     }
 
     /**
