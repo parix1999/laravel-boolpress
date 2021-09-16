@@ -16,8 +16,8 @@
             <tbody>
            
                 <tr>
-                    <th scope="row">{{ $post->title}}</th>
-                    <td>{{ $post->price}}</td>
+                    <th scope="row">{{$post->title}}</th>
+                    <td>{{$post->price}}</td>
                     <td>
                         <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
                     </td>

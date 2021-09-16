@@ -32,6 +32,7 @@ class PostController extends Controller
     public function create()
     {
         // Qui creo il collegamento dati per il form del view, solo il ritorno della view:
+        // Qui si mostra la forma:
         return view('posts.create'); 
     }
 
@@ -45,7 +46,20 @@ class PostController extends Controller
     {
         // Mi serve per il POST:
         // qui andrà il dd per vedere se i dati partono:
-        dd($request);
+        // Qui si mostrano i dati da popolare
+
+        // Si richiedono i dati dentro alla variabile data
+        $data = $request->all(); // Da indietro un'array associativo (con i dati);
+        // Ora si crea il model:
+        $post = new post(); 
+        $post->title = $data['title'];
+        $post->abstract = $data['abstract'];
+        $post->cover = $data['cover'];
+        $post->price = $data['price'];
+        // Ora si salva:
+        $post->save(); // Se arriva a questo comando allora tutto andrà dentro al DataBase;
+        // Ora manca la funzione di return, per la redirect:
+        return redirect()->route('posts.show', $post);
     }
 
     /**
