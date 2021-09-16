@@ -3,6 +3,29 @@
   background-color: lightgray;
 }
 
+.bg-azuro {
+  background-color: #028cb0;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.bottone {
+  text-align: center;
+}
+
+.bottone button a {
+  color: #fff;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
