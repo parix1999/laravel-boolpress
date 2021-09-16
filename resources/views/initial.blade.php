@@ -8,7 +8,7 @@
             Guarda tutti i nostri Post Template
         </div>
         <div class="bottone">
-            <button type="button" class="btn btn-primary"><a href="/posts">Vai</a></button>
+            <button type="button" class="btn btn-success"><a href="/posts">Vai</a></button>
         </div>
     </div>
 </div>

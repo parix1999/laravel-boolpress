@@ -22,6 +22,7 @@
             </div>
         </div> -->
         <!-- Parte personalizzata da me: -->
+        <a href="{{ route('posts.create') }}">Aggiungi un Post +</a>
         <table class="table">
             <thead class="prova">
                 <tr>
