@@ -21,7 +21,7 @@
                     <td>
                         <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
                     </td>
-                    <td><button>Buy</button></td>
+                    <td><button class="btn btn-outline-primary">Buy</button></td>
                 </tr>
             
         </tbody>
