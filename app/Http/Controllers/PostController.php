@@ -56,7 +56,7 @@ class PostController extends Controller
         $post->abstract = $data['abstract'];
         $post->cover = $data['cover'];
         $post->price = $data['price'];
-        // Ora facciamo la validizione
+        // Ora facciamo la validizione, prima del save cosi non mi agggiorna il database:
         $request->validate([
             "cover" => "required|url"
         ]);

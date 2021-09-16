@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Codice per gli errori: -->
+@if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <!-- Qui andrà la mia form: -->
 <div class="container">
@@ -18,7 +28,7 @@
         </div>
     
         <div class="form-group">
-            <label for="cover">Image</label>
+            <label for="cover">Cover(image)</label>
             <input type="text" class="form-control" name="cover" id="cover">
         </div>
     
