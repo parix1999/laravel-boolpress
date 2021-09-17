@@ -22,22 +22,22 @@
         <!-- Devo passare i dati della tabella per fare in modo che capisca i nomi -->
         <div class="form-group">
             <label for="title">Titolo</label>
-            <input type="text" class="form-control" name="title" id="title">
+            <input type="text" class="form-control" name="title" id="title" value="{{ $post->title }}">
         </div>
         
         <div class="form-group">
             <label for="abstract">Descrizione</label>
-            <input type="text" class="form-control" name="abstract" id="abstract">
+            <input type="text" class="form-control" name="abstract" id="abstract" value="{{ $post->abstract }}">
         </div>
     
         <div class="form-group">
             <label for="cover">Cover(image)</label>
-            <input type="text" class="form-control" name="cover" id="cover">
+            <input type="text" class="form-control" name="cover" id="cover" value="{{ $post->cover }}">
         </div>
     
         <div class="form-group">
             <label for="price">Prezzo</label>
-            <input type="number" class="form-control" step ="0.01" name="price" id="price">
+            <input type="number" class="form-control" step ="0.01" name="price" id="price" value="{{ $post->price }}">
         </div>
     
         <button type="submit" class="btn btn-primary">Salva</button>
