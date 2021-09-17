@@ -12,4 +12,10 @@ class post extends Model
     // $cover->...
     // $abstract->...
     // $price->...
+    protected $fillable = [
+        'title',
+        'cover',
+        'abstract',
+        'price'
+    ];
 }
