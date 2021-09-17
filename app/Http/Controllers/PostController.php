@@ -93,9 +93,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+   
+    public function edit(post $post)
     {
-        //
+        // Qui ci va il return della view nuova del forum modifica
+        return view('posts.change', compact('post')); 
     }
 
     /**
@@ -105,10 +107,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $post)
     {
-        //
-    }
+        // Qui tipo lo store
+       
+    } 
 
     /**
      * Remove the specified resource from storage.
