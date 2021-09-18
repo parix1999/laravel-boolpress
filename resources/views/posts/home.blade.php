@@ -43,6 +43,7 @@
                             <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
                         </td>
                         <td><a href="{{ route('posts.show', $post) }}"><i class="bi bi-door-open"></i></a></td>
+                        <td><a href="{{ route('posts.edit', $post) }}"><i class="bi bi-pencil"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>
