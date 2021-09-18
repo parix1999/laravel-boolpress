@@ -129,8 +129,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(post $post)
     {
-        //
+        // Qui ci va la funzione che distrugge e cancella un'elemento dentro il DB:
+        // Metodo per la cancellazione, dove li passo l'id del model post per farli capire quale eliminare
+        $post->delete();
+
+        // Ora serve la nuova rotta del return:
+        return redirect()->route('posts.index');
+
     }
 }

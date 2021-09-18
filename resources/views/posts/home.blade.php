@@ -56,14 +56,10 @@
                                 </button>
                             </a>
                             <!-- Terzo bottone dentro alla form con il suo link diretto alla funzione destroy nel controller -->
-                            <form action="{{ route('posts.update', $post) }}" method="POST">
-                                <!-- Token: -->
+                            <form action="{{ route('posts.destroy', $post) }}" method="POST">
                                 @csrf
-                                <!-- Metodo eliminazione -->
-                                @method('DESTROY')
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
-                                    <i class="bi bi-trash"></i>
-                                </button>
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                             </form>
                         </td>
                         
