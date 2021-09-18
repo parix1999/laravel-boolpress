@@ -15,7 +15,7 @@
 <!-- Qui andrà la mia form: -->
 <div class="container">
     <!-- Qua va cambiata la rotta ma come method si lascia post, dato che l'html non riesce a leggere put -->
-    <form action="{{ route('posts.store', $post) }}" method="POST">
+    <form action="{{ route('posts.update', $post) }}" method="POST">
         @csrf
         <!-- serve il metodo put -->
         @method('PUT')

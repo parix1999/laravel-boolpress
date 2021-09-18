@@ -110,7 +110,7 @@ class PostController extends Controller
     public function update(Request $request, $post)
     {
         // Qui tipo lo store
-       
+       dd($post);
     } 
 
     /**
