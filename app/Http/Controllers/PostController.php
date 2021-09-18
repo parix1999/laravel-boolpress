@@ -107,10 +107,20 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $post)
+    public function update(Request $request, post $post)
     {
         // Qui tipo lo store
-       dd($post);
+        // Richiamo tutti i dati dal model requiest dentro ad una variabile che chiamo data:
+        $data = $request->all();
+
+        // Ora facciamo l'update, senza la funzione visto che non ho nessun dato booleano:
+        // Allora post che sarebbe l'id viene aggiornato(update) con i data che sarebbero i request.
+        $post->update($data);
+        
+        // Adesso serve il return:
+        // Si rindirizza(redirect) nella rotta di post show, dove ci sono tutti i post e dove si deve vedere le modifiche,
+        // e si scrive il $post la variabile id per far capire quale post va modificato. 
+        return redirect()->route('posts.show', $post);
     } 
 
     /**
