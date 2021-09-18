@@ -42,8 +42,31 @@
                         <td>
                             <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
                         </td>
-                        <td><a href="{{ route('posts.show', $post) }}"><i class="bi bi-door-open"></i></a></td>
-                        <td><a href="{{ route('posts.edit', $post) }}"><i class="bi bi-pencil"></i></a></td>
+                        <td>
+                            <!-- primo bottone per le specifiche -->
+                            <a href="{{ route('posts.show', $post) }}">
+                                <button type="button" class="btn btn-primary">
+                                    <i class="bi bi-door-open"></i>
+                                </button>
+                            </a>
+                            <!-- Secondo bottone per le modifiche -->
+                            <a href="{{ route('posts.edit', $post) }}">
+                                <button type="button" class="btn btn-success">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </a>
+                            <!-- Terzo bottone dentro alla form con il suo link diretto alla funzione destroy nel controller -->
+                            <form action="{{ route('posts.update', $post) }}" method="POST">
+                                <!-- Token: -->
+                                @csrf
+                                <!-- Metodo eliminazione -->
+                                @method('DESTROY')
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                        
                     </tr>
                 @endforeach
             </tbody>
