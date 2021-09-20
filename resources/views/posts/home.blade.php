@@ -6,7 +6,7 @@
     <div class="row">
         @foreach($allPosts as $post)
             
-                <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+                <div class="col-sm-6 col-md-4 col-lg-3 content" style="width: 18rem;">
                     <img src="{{ $post->cover }}" class="card-img-top" alt="immagine del post {{ $post->title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
@@ -52,7 +52,7 @@
         
                     </div>
                 </div>
-
+            
                 
         @endforeach
     </div>
