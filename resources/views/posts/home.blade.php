@@ -2,7 +2,13 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('posts.create') }}">Aggiungi un Post +</a>
+    @if(!Auth::check())
+        <div>Devi fare la login o registrarti per modificare post, eliminarli o vedere le specifiche</div>
+        <a href="{{ route('login') }}">Clicca qui</a>
+    @endif
+    @if(Auth::check())
+        <a href="{{ route('posts.create') }}">Aggiungi un Post +</a>
+    @endif
     <div class="row">
         @foreach($allPosts as $post)
             
@@ -11,12 +17,14 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
                         <p class="card-text">{{ $post->abstract }}</p>
-                        <!-- Bottone specifiche -->
-                        <a href="{{ route('posts.show', $post) }}">
-                             <button type="button" class="btn btn-primary">
-                                Specifiche
-                            </button>
-                        </a>
+                        @if(Auth::check())
+                            <!-- Bottone specifiche -->
+                            <a href="{{ route('posts.show', $post) }}">
+                                <button type="button" class="btn btn-primary">
+                                    Specifiche
+                                </button>
+                            </a>
+                        @endif
                         @if(Auth::check())
                             <!-- Button trigger modal -->
                             <!-- Quinidi su data-target si passa l'id dell'oggetto che si vuole eliminare -->
