@@ -56,17 +56,12 @@ class PostController extends Controller
         // qui andrà il dd per vedere se i dati partono:
         // Qui si mostrano i dati da popolare
         
-        // Si richiedono i dati dentro alla variabile data
-        $data = $request->all(); // Da indietro un'array associativo (con i dati);
         // Ora si crea il model:
         $post = new post(); 
-        $post->title = $data['title'];
-        $post->abstract = $data['abstract'];
-        $post->cover = $data['cover'];
-        $post->price = $data['price'];
-        // Ora si salva:
-        $post->save(); // Se arriva a questo comando allora tutto andrà dentro al DataBase;
-       
+        // E ora si lancia la funzione che permette di salvare i dati dentro i vari campi del dataBase:
+        $this->saveItemFromRequest($post, $request);
+
+
         // Ora manca la funzione di return, per la redirect:
         return redirect()->route('posts.show', $post);
 
@@ -116,13 +111,21 @@ class PostController extends Controller
         // Funzione per la richiesta di determinati campi nel change
         $this->check($request);
         // Qui tipo lo store
-        // Richiamo tutti i dati dal model requiest dentro ad una variabile che chiamo data:
+        
+        
+        /* Richiamo tutti i dati dal model requiest dentro ad una variabile che chiamo data:
         $data = $request->all();
 
-        // Ora facciamo l'update, senza la funzione visto che non ho nessun dato booleano:
-        // Allora post che sarebbe l'id viene aggiornato(update) con i data che sarebbero i request.
+        Ora facciamo l'update, senza la funzione visto che non ho nessun dato booleano:
+        Allora post che sarebbe l'id viene aggiornato(update) con i data che sarebbero i request.
         $post->update($data);
-        
+        */
+
+        // Se io qui invece del codice sopra richiamo la funzione sotto per salvare i vari dati presi dalle varie colonne del DB, dovrebbe andare:
+        // Cosi da complicarsi meno la vita:
+        $this->saveItemFromRequest($post, $request);
+
+
         // Adesso serve il return:
         // Si rindirizza(redirect) nella rotta di post show, dove ci sono tutti i post e dove si deve vedere le modifiche,
         // e si scrive il $post la variabile id per far capire quale post va modificato. 
@@ -155,5 +158,17 @@ class PostController extends Controller
             'abstract' => 'required',
             'price' => 'required'
         ]);
-    }   
+    }
+    
+    // Per la pulizia del codice, creazione di una funzione per la compilazione dei dati nella create:
+    private function saveItemFromRequest(post $post, Request $request) {
+        // Si richiedono i dati dentro alla variabile data
+        $data = $request->all(); // Da indietro un'array associativo (con i dati);
+        $post->title = $data['title'];
+        $post->abstract = $data['abstract'];
+        $post->cover = $data['cover'];
+        $post->price = $data['price'];
+        // Ora si salva:
+        $post->save(); // Se arriva a questo comando allora tutto andrà dentro al DataBase;
+    }
 }
