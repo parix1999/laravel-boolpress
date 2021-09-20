@@ -1,8 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css);@charset "UTF-8";
-.bg {
-  background-color: lightgray;
-}
-
 .bg-azuro {
   background-color: #028cb0;
   height: 400px;

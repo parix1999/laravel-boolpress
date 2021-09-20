@@ -44,10 +44,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // Ora facciamo la validizione, prima del save cosi non mi agggiorna il database:
+        /*
+        $request->validate([
+            "cover" => "required|url"
+        ]);
+        */
+        // Funzione per la richiesta di determinati campi nnella create.
+        $this->check($request);
         // Mi serve per il POST:
         // qui andrà il dd per vedere se i dati partono:
         // Qui si mostrano i dati da popolare
-
+        
         // Si richiedono i dati dentro alla variabile data
         $data = $request->all(); // Da indietro un'array associativo (con i dati);
         // Ora si crea il model:
@@ -56,10 +64,6 @@ class PostController extends Controller
         $post->abstract = $data['abstract'];
         $post->cover = $data['cover'];
         $post->price = $data['price'];
-        // Ora facciamo la validizione, prima del save cosi non mi agggiorna il database:
-        $request->validate([
-            "cover" => "required|url"
-        ]);
         // Ora si salva:
         $post->save(); // Se arriva a questo comando allora tutto andrà dentro al DataBase;
        
@@ -109,6 +113,8 @@ class PostController extends Controller
      */
     public function update(Request $request, post $post)
     {
+        // Funzione per la richiesta di determinati campi nel change
+        $this->check($request);
         // Qui tipo lo store
         // Richiamo tutti i dati dal model requiest dentro ad una variabile che chiamo data:
         $data = $request->all();
@@ -139,4 +145,15 @@ class PostController extends Controller
         return redirect()->route('posts.index');
 
     }
+
+    // Funzione che controlla se tutti i campi sono stati compilati e se l'url è effetivamente un'url:
+    private function check(Request $request) {
+        // Funzione per la validizione di tutti i campi, sia per il create che per il change:
+        $request->validate([
+            'title' => 'required',
+            'cover' => ['required', 'url'],
+            'abstract' => 'required',
+            'price' => 'required'
+        ]);
+    }   
 }
