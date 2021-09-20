@@ -7,9 +7,11 @@
         <div class="title">
             Guarda tutti i nostri Post Template
         </div>
-        <div class="bottone">
-            <button type="button" class="btn btn-success"><a href="/posts">Vai</a></button>
-        </div>
+        <a href="/posts">
+            <div class="bottone">
+                <button type="button" class="btn btn-success">Vai</button>
+            </div>
+        </a>
     </div>
 </div>
 
