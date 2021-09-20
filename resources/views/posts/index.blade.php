@@ -21,7 +21,11 @@
                     <td>
                         <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
                     </td>
-                    <td><button class="btn btn-outline-primary">Buy</button></td>
+                    <td>
+                        <a href="{{ route('posts.store') }}">
+                            <button class="btn btn-outline-primary">Go Back</button>
+                        </a>
+                    </td>
                 </tr>
             
         </tbody>
