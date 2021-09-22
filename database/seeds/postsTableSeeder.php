@@ -16,11 +16,13 @@ class postsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+         
+
+
+        // Funzione per un numero random da mettere dentro il faker per la generazione di parole:
         function randomNumber() {
             return rand(1, 5);
         }
-
-
         // Qui ora passiamo tutti i dati, con l'uso di un faker, generando 50 post:
         for($i = 0; $i < 50; $i++) {
             // Qui andranno i dati da generare, creando un nuovo oggetto post:
