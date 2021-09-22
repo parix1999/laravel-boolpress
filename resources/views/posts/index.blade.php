@@ -11,6 +11,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Price</th>
                     <th scope="col">Image</th>
+                    <th scope="col">Genere</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -22,6 +23,9 @@
                     <td>{{$post->price}}</td>
                     <td>
                         <img src="{{ $post->cover }}" alt="foto di {{$post->title}}">
+                    </td>
+                    <td>
+                        {{ $categorie->genere }}
                     </td>
                     <td>
                         <a href="{{ route('posts.store') }}">
