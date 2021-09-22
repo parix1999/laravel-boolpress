@@ -36,6 +36,20 @@
             <label for="price">Prezzo</label>
             <input type="number" class="form-control" step ="0.01" name="price" id="price">
         </div>
+
+        <h2>Dati Aggiuntivi:</h2>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                @foreach($categorie as $tipo)
+                <!-- Nel value va l'id cosi che capisca cosa prendere -->
+                <option value="{{ $tipo->id }}">{{ $tipo->genere }}</option>
+                @endforeach
+            </select>
+        </div>
     
         <button type="submit" class="btn btn-primary">Salva</button>
     

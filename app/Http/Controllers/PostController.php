@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // Collego i miei dati del DB
 use App\post;
-
+use App\Category;
 class PostController extends Controller
 {
     /**
@@ -32,8 +32,9 @@ class PostController extends Controller
     public function create()
     {
         // Qui creo il collegamento dati per il form del view, solo il ritorno della view:
+        $categorie = Category::all(); // Qui dentro ci sono i dati della tabella categorie(dove c'è la relazione con la foreign key)
         // Qui si mostra la forma:
-        return view('posts.create'); 
+        return view('posts.create', compact('categorie')); 
     }
 
     /**
@@ -50,10 +51,9 @@ class PostController extends Controller
             "cover" => "required|url"
         ]);
         */
-        // Funzione per la richiesta di determinati campi nnella create.
+        // Funzione per la richiesta di determinati campi nella create.
         $this->check($request);
         // Mi serve per il POST:
-        // qui andrà il dd per vedere se i dati partono:
         // Qui si mostrano i dati da popolare
         
         // Ora si crea il model:
